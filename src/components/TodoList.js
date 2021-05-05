@@ -5,7 +5,7 @@ import Todo from "./Todo"
 function TodoList() {
     const [todos, setTodos] = useState([])
 
-    const addTodo = todo => {
+    const addTodo = todo => {     //дабавити
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return
         }
@@ -14,14 +14,14 @@ function TodoList() {
         setTodos(newTodos)
     }
 
-    const updateTodo = (todoId, newValue) => {
+    const updateTodo = (todoId, newValue) => {                   //оновлення
         if (!newValue.text || /^\s*$/.test(newValue.text)) {
             return
         }
         setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)))
     }
 
-    const removeTodo = id => {
+    const removeTodo = id => {                        //видалити
         const removeArr = [...todos].filter(todo => todo.id !== id)
 
         setTodos(removeArr)
